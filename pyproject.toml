@@ -1,0 +1,107 @@
+[tool.poetry]
+name = "banshee"
+version = "0.0.0-b1"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "banshee", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+exceptiongroup = {version = "^1.0.0-rc.3"}
+injector = {version = "^0.19.0", optional = true}
+
+[tool.poetry.group.docs.dependencies]
+myst-parser = "^0.17.2"
+sphinx-artisan-theme = "^0.0.1-beta.1"
+autodocsumm = "^0.2.8"
+sphinx-autobuild = "^2021.3.14"
+sphinxcontrib-spelling = "^7.3.3"
+
+[tool.poetry.group.dev.dependencies]
+shed = "^0.9.5"
+pylint = "^2.13.7"
+mypy = "^0.942"
+pytest = "^7.1.1"
+pytest-asyncio = "^0.18.3"
+pytest-cov = "^3.0.0"
+typeguard = "^2.13.3"
+docformatter = "^1.4"
+pytest-pylint = "^0.18.0"
+pytest-mypy = "^0.9.1"
+pydocstyle = "^6.1.1"
+pytest-pydocstyle = "^2.3.0"
+pyenchant = "^3.2.2"
+conjecture = "^0.0.3"
+freezegun = "^1.2.1"
+
+[tool.poetry.extras]
+injector = ["injector"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+known_localfolder = ['tests']
+
+[tool.pylint.master]
+load-plugins = [
+    "pylint.extensions.bad_builtin",
+    "pylint.extensions.mccabe",
+    "pylint.extensions.docstyle",
+    "pylint.extensions.check_elif",
+    "pylint.extensions.eq_without_hash",
+    "pylint.extensions.private_import",
+    "pylint.extensions.redefined_variable_type",
+    "pylint.extensions.overlapping_exceptions",
+    "pylint.extensions.docparams",
+    "pylint.extensions.empty_comment",
+    "pylint.extensions.set_membership",
+    "pylint.extensions.typing",
+    "pylint.extensions.while_used",
+]
+
+[tool.pylint.basic]
+good-names = ["i", "j", "k", "ex", "Run", "_", "to"]
+
+[tool.pylint.messages_control]
+disable = [
+    "docstring-first-line-empty",
+]
+
+[tool.pylint.format]
+max-line-length = 88
+
+[tool.pylint.spelling]
+spelling-dict = "en_GB"
+spelling-private-dict-file = ".dictionary"
+
+[tool.pylint.similarities]
+ignore-signatures = true
+ignore-imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "strict"
+testpaths = "tests"
+filterwarnings = [
+    "error",
+    "ignore::pytest.PytestRemovedIn8Warning",
+]
+
+[tool.pylint.parameter_documentation]
+default-docstring-type = "sphinx"
+
+[tool.mypy]
+strict = true
+
+[tool.pydocstyle]
+add-ignore = [
+    "D102",
+    "D105",
+    "D107",
+    "D200",
+    "D212",
+]

@@ -1,0 +1,55 @@
+name: docs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+
+    - name: install hunspell-en-gb
+      run: sudo apt-get install -y hunspell-en-gb
+
+    - name: set python version
+      uses: actions/setup-python@v1
+      with:
+        python-version: "3.10"
+
+    - name: install poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python - --preview
+
+    - name: Update PATH
+      run: echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+    - name: configure poetry
+      run: poetry config virtualenvs.in-project true
+
+    - name: set up python cache
+      uses: actions/cache@v2
+      id: python-cache
+      with:
+        path: .venv
+        key: venv-${{ hashFiles('**/poetry.lock') }}
+
+    - name: ensure cache is healthy
+      if: steps.python-cache.outputs.cache-hit == 'true'
+      run: timeout 10s poetry run pip --version || rm -rf .venv
+    
+    - name: install python dependencies
+      if: steps.python-cache.outputs.cache-hit != 'true'
+      run: poetry install
+
+    - name: build docs
+      run: make build docs
+
+    - name: deploy site
+      env:
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      run: netlify deploy --dir=dist/docs --prod

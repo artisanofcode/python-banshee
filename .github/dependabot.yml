@@ -5,7 +5,7 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-      day: "monday""
+      day: "monday"
     reviewers:
       - "artisanofcode/core"
       

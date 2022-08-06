@@ -4,13 +4,32 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "publish"
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
-  deploy-docs:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@master
+    - name: fetch code
+      uses: actions/checkout@v2
+
+    - name: setup pages
+      id: pages
+      uses: actions/configure-pages@v1
 
     - name: install hunspell-en-gb
       run: sudo apt-get install -y hunspell-en-gb
@@ -26,8 +45,18 @@ jobs:
     - name: build docs
       run: make build docs
 
-    - name: deploy site
-      env:
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      run: netlify deploy --dir=dist/docs --prod
+    - name: upload artifact
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: ./dist/docs
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: deploy to pages
+        id: deployment
+        uses: actions/deploy-pages@v1

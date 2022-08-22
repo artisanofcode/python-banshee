@@ -29,7 +29,7 @@ jobs:
 
     - name: setup pages
       id: pages
-      uses: actions/configure-pages@v1
+      uses: actions/configure-pages@v2
 
     - name: install hunspell-en-gb
       run: sudo apt-get install -y hunspell-en-gb

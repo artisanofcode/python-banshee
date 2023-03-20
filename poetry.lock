@@ -304,17 +304,23 @@ graph = ["objgraph (>=1.7.2)"]
 
 [[package]]
 name = "docformatter"
-version = "1.4"
-description = "Formats docstrings to follow PEP 257."
+version = "1.5.1"
+description = "Formats docstrings to follow PEP 257"
 category = "dev"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6,<4.0"
 files = [
-    {file = "docformatter-1.4.tar.gz", hash = "sha256:064e6d81f04ac96bc0d176cbaae953a0332482b22d3ad70d47c8a7f2732eef6f"},
+    {file = "docformatter-1.5.1-py3-none-any.whl", hash = "sha256:05d6e4c528278b3a54000e08695822617a38963a380f5aef19e12dd0e630f19a"},
+    {file = "docformatter-1.5.1.tar.gz", hash = "sha256:3fa3cdb90cdbcdee82747c58410e47fc7e2e8c352b82bed80767915eb03f2e43"},
 ]
 
 [package.dependencies]
-untokenize = "*"
+charset_normalizer = ">=2.0.0,<3.0.0"
+tomli = {version = ">=2.0.0,<3.0.0", markers = "python_version >= \"3.7\""}
+untokenize = ">=0.1.1,<0.2.0"
+
+[package.extras]
+tomli = ["tomli (<2.0.0)"]
 
 [[package]]
 name = "docutils"

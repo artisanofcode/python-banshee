@@ -1239,13 +1239,13 @@ test = ["cython", "html5lib", "pytest", "pytest-cov", "typed-ast"]
 
 [[package]]
 name = "sphinx-artisan-theme"
-version = "0.0.1b2"
+version = "0.0.2"
 description = ""
 optional = false
-python-versions = ">=3.10,<4.0"
+python-versions = ">=3.9,<4.0"
 files = [
-    {file = "sphinx-artisan-theme-0.0.1b2.tar.gz", hash = "sha256:bb70628360fca3d68894972646adc74a44bcc11de1bb16ee90eb3a0746200aa8"},
-    {file = "sphinx_artisan_theme-0.0.1b2-py3-none-any.whl", hash = "sha256:5e1ce179a53cb58c32203b8e5595802de7558f27f5ea1582ab71480d2fc40ad9"},
+    {file = "sphinx-artisan-theme-0.0.2.tar.gz", hash = "sha256:ae0713b315e1b52d70e9d7907b84dad5147f08d494e4159115285a90e6fdb786"},
+    {file = "sphinx_artisan_theme-0.0.2-py3-none-any.whl", hash = "sha256:1b4b3e784e6407f587e0bcaee39fadd896e4a2ad59b7269cbb7165b6307fd74e"},
 ]
 
 [package.dependencies]
@@ -1607,4 +1607,4 @@ injector = ["injector"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "6e9210d3ebe76316c9718401f7c4c2e6282c7f1d180e8359c90f4993526c7c85"
+content-hash = "2625f3e41625a2994c5a6128c6c4b8a4a6695e8b3ec04d81bfebbe2fbdc35f30"

@@ -26,8 +26,8 @@ files = [
 lazy-object-proxy = ">=1.4.0"
 typing-extensions = {version = ">=4.0.0", markers = "python_version < \"3.11\""}
 wrapt = [
-    {version = ">=1.11,<2", markers = "python_version < \"3.11\""},
     {version = ">=1.14,<2", markers = "python_version >= \"3.11\""},
+    {version = ">=1.11,<2", markers = "python_version < \"3.11\""},
 ]
 
 [[package]]
@@ -333,20 +333,6 @@ tomli = {version = "*", optional = true, markers = "extra == \"toml\""}
 
 [package.extras]
 toml = ["tomli"]
-
-[[package]]
-name = "dill"
-version = "0.3.4"
-description = "serialize all of python"
-optional = false
-python-versions = ">=2.7, !=3.0.*"
-files = [
-    {file = "dill-0.3.4-py2.py3-none-any.whl", hash = "sha256:7e40e4a70304fd9ceab3535d36e58791d9c4a776b38ec7f7ec9afc8d3dca4d4f"},
-    {file = "dill-0.3.4.zip", hash = "sha256:9f9734205146b2b353ab3fec9af0070237b6ddae78452af83d2fca84d739e675"},
-]
-
-[package.extras]
-graph = ["objgraph (>=1.7.2)"]
 
 [[package]]
 name = "dill"
@@ -935,8 +921,8 @@ files = [
 astroid = ">=2.15.4,<=2.17.0-dev0"
 colorama = {version = ">=0.4.5", markers = "sys_platform == \"win32\""}
 dill = [
-    {version = ">=0.2", markers = "python_version < \"3.11\""},
     {version = ">=0.3.6", markers = "python_version >= \"3.11\""},
+    {version = ">=0.2", markers = "python_version < \"3.11\""},
 ]
 isort = ">=4.2.5,<6"
 mccabe = ">=0.6,<0.8"
@@ -1021,8 +1007,8 @@ files = [
 attrs = ">=19.0"
 filelock = ">=3.0"
 mypy = [
-    {version = ">=0.780", markers = "python_version >= \"3.9\" and python_version < \"3.11\""},
     {version = ">=0.900", markers = "python_version >= \"3.11\""},
+    {version = ">=0.780", markers = "python_version >= \"3.9\" and python_version < \"3.11\""},
 ]
 pytest = {version = ">=6.2", markers = "python_version >= \"3.10\""}
 
@@ -1046,18 +1032,22 @@ tests = ["pytest-isort", "pytest-pycodestyle (>=2.3,<3.0)"]
 [[package]]
 name = "pytest-pylint"
 version = "0.19.0"
-description = "pytest plugin to check source code with pylint"
+description = ""
 optional = false
 python-versions = ">=3.7"
-files = [
-    {file = "pytest-pylint-0.19.0.tar.gz", hash = "sha256:d88e83c1023c641548a9ec3567707ceee7616632a986af133426d4a74d066932"},
-    {file = "pytest_pylint-0.19.0-py3-none-any.whl", hash = "sha256:b51d3f93bed9c192e2b046f16520981bee5abe7bd61b070306e7ee685219fdd3"},
-]
+files = []
+develop = false
 
 [package.dependencies]
 pylint = ">=2.3.0"
 pytest = ">=5.4"
 toml = ">=0.7.1"
+
+[package.source]
+type = "git"
+url = "https://github.com/carsongee/pytest-pylint.git"
+reference = "804add7"
+resolved_reference = "804add7d1959367a5d347180df5e6f7f3d789f08"
 
 [[package]]
 name = "python-dateutil"
@@ -1594,4 +1584,4 @@ injector = ["injector"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "7d1d7b29c679bbe22120a27844352c571c1a70059be77e0f3227fc20f2e58521"
+content-hash = "dd1db06b8a5a3bd1f5fadb695e8eae0c279431ef8e8fcc712944ad6a2d771709"

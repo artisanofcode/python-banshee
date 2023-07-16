@@ -16,7 +16,7 @@ myst-parser = ">=0.17.2,<0.19.0"
 sphinx-artisan-theme = ">=0.0.1,<0.0.3"
 autodocsumm = "^0.2.8"
 sphinx-autobuild = "^2021.3.14"
-sphinxcontrib-spelling = "^7.3.3"
+sphinxcontrib-spelling = ">=7.3.3,<9.0.0"
 
 [tool.poetry.group.dev.dependencies]
 shed = ">=0.9.5,<2023.6.0"

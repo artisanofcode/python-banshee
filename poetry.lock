@@ -1160,19 +1160,19 @@ use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "shed"
-version = "2023.5.2"
+version = "2023.6.1"
 description = "`shed` canonicalises Python code."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "shed-2023.5.2-py3-none-any.whl", hash = "sha256:c7e0ef10602e66c77f08a9324d746b7cea56dcd77a692a47be75cae872f48f4a"},
-    {file = "shed-2023.5.2.tar.gz", hash = "sha256:6d096c5fe4792961c14b25d7ba0251d26638f1e76a9af324abb22b52c29b6f85"},
+    {file = "shed-2023.6.1-py3-none-any.whl", hash = "sha256:f57ec3c5bebdace91dd4cff975e0b76405914dd4d3d6a107aa5fe5c05ca1c6c7"},
+    {file = "shed-2023.6.1.tar.gz", hash = "sha256:9f884d783f48b8ad86ce8fef9e3f71056190ce1421d942cbf59c23ac08ccd380"},
 ]
 
 [package.dependencies]
 autoflake = ">=1.4"
 black = ">=23.3.0"
-com2ann = {version = ">=0.3.0", markers = "python_version >= \"3.8\""}
+com2ann = ">=0.3.0"
 isort = ">=5.10.1"
 libcst = ">=0.4.10"
 pyupgrade = ">=3.0.0"
@@ -1584,4 +1584,4 @@ injector = ["injector"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "ae7e92ce6a3890876114bf1e75daddd32b6ed6defe52744a09f2af4a59e8c0ac"
+content-hash = "7bc4ad74707de04801f2736ba8b9101e98d22f547debc0adfc790661d4bb575d"

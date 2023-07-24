@@ -269,13 +269,13 @@ files = [
 
 [[package]]
 name = "conjecture"
-version = "0.0.3"
+version = "0.1.0"
 description = "A pythonic assertion library"
 optional = false
 python-versions = ">=3.9,<4.0"
 files = [
-    {file = "conjecture-0.0.3-py3-none-any.whl", hash = "sha256:372fde6beb8fd22fc999892c825415884aa1f9d4978c26cab4524776357d0ab2"},
-    {file = "conjecture-0.0.3.tar.gz", hash = "sha256:d4c9c9643a8719d865540b3d7c7258bdf9ccfb5d14a0a79e39d3aaa949df371d"},
+    {file = "conjecture-0.1.0-py3-none-any.whl", hash = "sha256:2ca21418bd9720aae534f16ee8150434d61df37e9dda34c03ef3c00b5b9133cf"},
+    {file = "conjecture-0.1.0.tar.gz", hash = "sha256:a4b5480a068266bb040ae792dfc721b5d46137f59b35bd841304e2889843b958"},
 ]
 
 [[package]]
@@ -1584,4 +1584,4 @@ injector = ["injector"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "dd1db06b8a5a3bd1f5fadb695e8eae0c279431ef8e8fcc712944ad6a2d771709"
+content-hash = "73b67ea080ec7f47376a9ff6dce1e4517980f335d7bf144b1107ee0e318d579f"

@@ -19,7 +19,7 @@ sphinx-autobuild = "^2021.3.14"
 sphinxcontrib-spelling = ">=7.3.3,<9.0.0"
 
 [tool.poetry.group.dev.dependencies]
-shed = ">=0.9.5,<2023.6.0"
+shed = ">=0.9.5,<2023.7.0"
 pylint = "^2.13.7"
 mypy = "^0.942"
 pytest = "^7.1.1"

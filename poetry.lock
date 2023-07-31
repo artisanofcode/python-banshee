@@ -455,17 +455,17 @@ files = [
 
 [[package]]
 name = "injector"
-version = "0.20.1"
+version = "0.21.0"
 description = "Injector - Python dependency injection framework, inspired by Guice"
 optional = true
 python-versions = "*"
 files = [
-    {file = "injector-0.20.1-py2.py3-none-any.whl", hash = "sha256:f8fc5994176a8cf6b0455a8d1558c588733474ef17795553464e7e9d2f94eaf5"},
-    {file = "injector-0.20.1.tar.gz", hash = "sha256:8661b49a2f8309ce61e3a6a82b7acb5e225c4bde8e17d1610c893a670dff223a"},
+    {file = "injector-0.21.0-py2.py3-none-any.whl", hash = "sha256:3942c5e4c501d390d5ad1b8d7d486ef93b844934afeeb17211acb6c4ca29eeb4"},
+    {file = "injector-0.21.0.tar.gz", hash = "sha256:919eb6b9f96f40bf98fda34c79762b217bd1544d9adc35805ff2948e92356c9c"},
 ]
 
 [package.extras]
-dev = ["black", "check-manifest", "dataclasses", "mypy", "pytest", "pytest-cov (>=2.5.1)"]
+dev = ["black (==23.3.0)", "build (==0.10.0)", "check-manifest (==0.49)", "click (==8.1.3)", "coverage (==7.2.7)", "exceptiongroup (==1.1.1)", "iniconfig (==2.0.0)", "mypy (==1.4.1)", "mypy-extensions (==1.0.0)", "packaging (==23.1)", "pathspec (==0.11.1)", "platformdirs (==3.8.0)", "pluggy (==1.2.0)", "pyproject-hooks (==1.0.0)", "pytest (==7.4.0)", "pytest-cov (==4.1.0)", "tomli (==2.0.1)", "typing-extensions (==4.7.0)"]
 
 [[package]]
 name = "isort"
@@ -1584,4 +1584,4 @@ injector = ["injector"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "7bc4ad74707de04801f2736ba8b9101e98d22f547debc0adfc790661d4bb575d"
+content-hash = "6c1457424198732d7be2bc1bf790d9d1f089b44246690ddf59babe3669bf48b3"

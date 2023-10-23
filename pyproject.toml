@@ -21,7 +21,7 @@ sphinxcontrib-spelling = ">=7.3.3,<9.0.0"
 [tool.poetry.group.dev.dependencies]
 shed = ">=0.9.5,<2023.7.0"
 pylint = "^2.13.7"
-mypy = "^0.942"
+mypy = ">=0.942,<1.7"
 pytest = "^7.1.1"
 pytest-asyncio = ">=0.18.3,<0.22.0"
 pytest-cov = ">=3,<5"

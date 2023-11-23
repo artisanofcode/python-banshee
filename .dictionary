@@ -3,6 +3,7 @@ cls
 composable
 configurationerror
 iterable
+lineno
 mypy
 pragma
 py

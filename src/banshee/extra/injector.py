@@ -92,11 +92,6 @@ class BansheeModule(injector.Module):
         self.registry = registry
 
     def configure(self, binder: injector.Binder) -> None:
-        binder.bind(injector.inject(banshee.IdentityMiddleware))
-        binder.bind(injector.inject(banshee.CausationMiddleware))
-        binder.bind(injector.inject(banshee.HandleAfterMiddleware))
-        binder.bind(injector.inject(banshee.DispatchMiddleware))
-
         if self.registry:
             # https://github.com/python/mypy/issues/4717
             binder.bind(
@@ -109,15 +104,11 @@ class BansheeModule(injector.Module):
     @injector.singleton
     @injector.provider
     def _provide_factory(self, container: injector.Injector) -> banshee.HandlerFactory:
-        # pylint: disable=no-self-use
-
         return InjectorHandlerFactory(container)
 
     @injector.singleton
     @injector.provider
     def _provide_message_bus(self, container: injector.Injector) -> banshee.Bus:
-        # pylint: disable=no-self-use
-
         return (
             banshee.Builder()
             .with_middleware(container.get(banshee.IdentityMiddleware))

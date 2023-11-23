@@ -11,40 +11,40 @@ jobs:
     env:
       PACKAGE_NAME: "banshee"
     steps:
-    - name: release please
-      uses: google-github-actions/release-please-action@v3
-      id: release
-      with:
-        release-type: python
-        package-name: ${{ env.PACKAGE_NAME }}
+      - name: release please
+        uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          release-type: python
+          package-name: ${{ env.PACKAGE_NAME }}
 
-    - name: fetch code
-      uses: actions/checkout@v4
-      if: ${{ steps.release.outputs.release_created }}
+      - name: fetch code
+        uses: actions/checkout@v4
+        if: ${{ steps.release.outputs.release_created }}
 
-    - name: set python version
-      if: ${{ steps.release.outputs.release_created }}
-      uses: actions/setup-python@v4
-      with:
-        python-version: "3.10"
+      - name: set python version
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
 
-    - name: install dependencies
-      uses: artisanal-actions/poetry-install@v1
-      if: ${{ steps.release.outputs.release_created }}
+      - name: install dependencies
+        uses: artisanal-actions/poetry-install@v1
+        if: ${{ steps.release.outputs.release_created }}
 
-    - name: build release
-      if: ${{ steps.release.outputs.release_created }}
-      run: poetry build
-      
-    - name: upload assets
-      uses: softprops/action-gh-release@v1
-      if: ${{ steps.release.outputs.release_created }}
-      with:
-        tag_name: ${{ steps.release.outputs.tag_name }}
-        files: dist/*
+      - name: build release
+        if: ${{ steps.release.outputs.release_created }}
+        run: poetry build
 
-    - name: publish release
-      if: ${{ steps.release.outputs.release_created }}
-      run: poetry publish
-      env:
-        POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_AUTH_TOKEN }}
+      - name: upload assets
+        uses: softprops/action-gh-release@v1
+        if: ${{ steps.release.outputs.release_created }}
+        with:
+          tag_name: ${{ steps.release.outputs.tag_name }}
+          files: dist/*
+
+      - name: publish release
+        if: ${{ steps.release.outputs.release_created }}
+        run: poetry publish
+        env:
+          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_AUTH_TOKEN }}

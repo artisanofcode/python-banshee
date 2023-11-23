@@ -145,7 +145,7 @@ def message_for(
     :returns: a message for the request and context objects
     """
     if not isinstance(request, Message):
-        return Message(request, contexts=tuple(contexts) if contexts else tuple())
+        return Message(request, contexts=tuple(contexts) if contexts else ())
 
     if not contexts:
         return request
@@ -213,6 +213,7 @@ class MiddlewareChain(HandleMessage):
         self.iterator = iterator
 
     async def _final(self, message: Message[T], handle: HandleMessage) -> Message[T]:
+        # pylint: disable=unused-argument
         return message
 
     async def __call__(self, message: Message[T]) -> Message[T]:

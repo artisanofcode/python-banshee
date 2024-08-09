@@ -105,7 +105,7 @@ async def test_query_should_return_handler_result() -> None:
 
     bus = banshee.bus.MessageBus([middleware])
 
-    result = await bus.query(_Request())
+    result: object = await bus.query(_Request())
 
     assert result is expected
 

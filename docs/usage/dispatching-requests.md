@@ -66,12 +66,31 @@ class GetUserQuery:
    user_id: int
 
 @registry.subscribe_to(GetUserQuery)
-async def do_greeting(query: GetUserQuery) -> User:
+async def get_user(query: GetUserQuery) -> User:
     return user_store.get(query.user_id)
 
 user = await bus.query(GetUserQuery(user_id=1))
 ```
 
+#### Return types
+
+The return type of a query is {class}`~typing.Any`, this can be 
+overridden by inheriting from the generic {class}`~banshee.Query` class.
+
+```py
+class GetUserQuery(banshee.Query[User]):
+   user_id: int
+
+@dataclasses.dataclass(freeze=True)
+class GetUserQuery:
+   user_id: int
+
+@registry.subscribe_to(GetUserQuery)
+async def get_user(query: GetUserQuery) -> User:
+    return user_store.get(query.user_id)
+
+user = await bus.query(GetUserQuery(user_id=1))
+```
 
 ## Reference
 
@@ -93,6 +112,10 @@ user = await bus.query(GetUserQuery(user_id=1))
    :members:
 
 .. autoclass:: banshee.Registry
+   :show-inheritance:
+   :members:
+
+.. autoclass:: banshee.Query
    :show-inheritance:
    :members:
 ```

@@ -3,7 +3,7 @@ A message bus / command dispatcher implementation.
 """
 
 from banshee.builder import Builder
-from banshee.bus import Bus, MessageBus
+from banshee.bus import Bus, MessageBus, Query
 from banshee.context import Causation, Dispatch, HandleAfter, Identity
 from banshee.errors import ConfigurationError, DispatchError, MultipleErrors
 from banshee.message import HandleMessage, Message, Middleware, message_for
@@ -48,6 +48,7 @@ __all__ = (
     "MessageInfo",
     "Middleware",
     "MultipleErrors",
+    "Query",
     "Registry",
     "SimpleHandlerFactory",
     "TraceableBus",

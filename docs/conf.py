@@ -85,7 +85,7 @@ suppress_warnings = [
 ]
 
 intersphinx_mapping = {
-    "python": ("https://docs.python.org/3.8", None),
+    "python": ("https://docs.python.org/3.10", None),
     "injector": ("https://injector.readthedocs.io/en/latest", None),
 }
 

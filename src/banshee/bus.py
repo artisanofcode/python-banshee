@@ -13,6 +13,20 @@ import banshee.message
 #: T
 T = typing.TypeVar("T")
 
+#: Return Type
+ReturnType_co = typing.TypeVar(  # pylint: disable=invalid-name
+    "ReturnType_co",
+    covariant=True,
+)
+
+
+class Query(typing.Protocol[ReturnType_co]):  # pylint: disable=too-few-public-methods
+    """
+    Query.
+
+    A generic type for specifying the return type of a request.
+    """
+
 
 @typing.runtime_checkable
 class Bus(typing.Protocol):
@@ -39,9 +53,9 @@ class Bus(typing.Protocol):
 
     async def query(
         self,
-        query: typing.Any,
+        query: Query[T],
         contexts: collections.abc.Iterable[typing.Any] | None = None,
-    ) -> typing.Any:
+    ) -> T:
         """
         Query.
 
@@ -68,7 +82,7 @@ class Bus(typing.Protocol):
                 f"multiple handlers for {type(message.request).__name__} found"
             )
 
-        return dispatch_contexts[0].result
+        return typing.cast(T, dispatch_contexts[0].result)
 
 
 class MessageBus(Bus):

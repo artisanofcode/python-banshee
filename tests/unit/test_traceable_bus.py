@@ -67,7 +67,7 @@ async def test_query_should_return_handler_result() -> None:
 
     bus = banshee.TraceableBus(inner)
 
-    result = await bus.query(request, contexts=[context1])
+    result: object = await bus.query(request, contexts=[context1])
 
     inner.handle.assert_awaited_once_with(
         banshee.message_for(request, contexts=[context1])
